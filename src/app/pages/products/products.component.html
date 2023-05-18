@@ -1,0 +1,27 @@
+<!-- <p>products works!</p> -->
+<!-- <pre>
+{{products | json}}
+</pre> -->
+
+<!-- Como pintar productos -->
+<!-- <section class="products">
+  <mat-card class="card" *ngFor=" let product of products">
+    <mat-card-header>
+      <mat-card-title>{{product.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      {{product.description}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button color="primary"> Buy {{product.price |
+        currency}}<mat-icon>add_shopping_cart</mat-icon></button>
+
+    </mat-card-actions>
+  </mat-card>
+</section> -->
+<section class="products">
+  <!-- el "product" es el product que está en el ngForm y tambien [product] quiere decir que debe haber una propiedad product en el hijo  por otra parte se van a generar varios app-product-->
+  <!-- a la funcion addTocart tambien podemos pasarle el product -->
+  <app-product (addToCartClick)="addToCart($event)" [product]="producto"
+    *ngFor="let producto of products"></app-product>
+</section>

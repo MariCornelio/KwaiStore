@@ -1,0 +1,31 @@
+<!-- <p>esto viene del componente Header</p> -->
+<!-- <p>
+  <mat-toolbar color="primary">
+    <span>My Store</span>
+  </mat-toolbar>
+</p> -->
+<section class="header-container">
+  <mat-toolbar class="header">
+
+    <a [routerLink]="['/']" class="logo-container"><img src="../../../../assets/logo.svg" class="logo" /><span>Kwai
+        Store</span><span>KS</span></a>
+
+
+    <div class="header-nav">
+      <section>
+        <mat-icon class="material-icons-outlined" (click)="goProducts()">local_mall</mat-icon>
+        <a [routerLink]="['/products']"><span>Products</span></a>
+      </section>
+      <section>
+        <mat-icon (click)="goAbout()">public</mat-icon>
+        <a [routerLink]="['/products']"><span>About</span></a>
+      </section>
+      <!-- renderizando el app-cart en una parte del header -->
+      <app-cart (click)="goToCheckout()"></app-cart>
+    </div>
+  </mat-toolbar>
+  <section class="header-roof" (window:resize)="onResize()">
+    <div *ngFor="let square of squares" class="square"></div>
+
+  </section>
+</section>
