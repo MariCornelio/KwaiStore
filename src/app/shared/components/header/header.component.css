@@ -19,6 +19,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 /* .header-nav  {
   margin: 0.5rem;
@@ -28,6 +29,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .header-nav mat-icon {
@@ -45,17 +47,18 @@ a {
   color: #ffffff;
 }
 app-cart:hover {
-  background-color: rgb(4, 172, 194);
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.7 ease-in-out;
 }
 .logo {
   width: 22px;
+  margin-right: 5px;
 }
 .logo-container span:last-child {
   display: none;
 }
+
 /* ****************************** */
 .header-roof {
   display: grid;
@@ -66,13 +69,32 @@ app-cart:hover {
 .square {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
-  box-shadow: 0px 10px 0px 0px rgba(207, 75, 98, 0.75);
+  box-shadow: 0px 10px 0px 0px #cf4b62bf;
 }
 .square:nth-child(even) {
   background-color: #92c8f6;
 }
 .square:nth-child(odd) {
   background-color: #ffffff;
+}
+/* *********************************** */
+/* Inactividad de secciones de navegacion */
+
+.active-section > mat-icon {
+  color: #cf4b62bf;
+}
+.active-section a {
+  color: #cf4b62bf;
+}
+.inactive-section a > span {
+  color: none;
+}
+
+.logo-container.active-section * {
+  color: #cf4b62bf;
+}
+.logo-container.inactive-section * {
+  color: none;
 }
 @media (max-width: 500px) {
   .header-nav section a {

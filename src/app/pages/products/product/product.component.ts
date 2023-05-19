@@ -5,6 +5,7 @@ import {
   Input,
   OnInit,
   Output,
+  ElementRef,
 } from '@angular/core';
 import { Product } from '../interfaces/product.interface';
 
@@ -17,9 +18,15 @@ import { Product } from '../interfaces/product.interface';
 export class ProductComponent {
   @Input() product!: Product;
   @Output() addToCartClick = new EventEmitter<Product>();
-  constructor() {}
+  constructor(private elementRef: ElementRef) {}
   onClick(): void {
     // console.log('click', this.product);
     this.addToCartClick.emit(this.product);
+  }
+  changeImage(img: string) {
+    const containerImages =
+      this.elementRef.nativeElement.querySelector('.card-image img');
+
+    containerImages.setAttribute('src', img);
   }
 }

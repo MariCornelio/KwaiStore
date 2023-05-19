@@ -6,14 +6,16 @@
         <th>Qty</th>
         <th>Price unit</th>
         <th>Sub Total</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let product of cart$ | async">
         <td>{{product.name}}</td>
-        <td>{{product.qty}}</td>
+        <td> <mat-icon>add</mat-icon>{{product.qty}}<mat-icon>remove</mat-icon></td>
         <td>{{product.price | currency}}</td>
         <td>{{product.qty * product.price |currency}}</td>
+        <td><mat-icon>delete</mat-icon></td>
       </tr>
     </tbody>
   </table>

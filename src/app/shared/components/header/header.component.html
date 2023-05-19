@@ -7,21 +7,23 @@
 <section class="header-container">
   <mat-toolbar class="header">
 
-    <a [routerLink]="['/']" class="logo-container"><img src="../../../../assets/logo.svg" class="logo" /><span>Kwai
+    <a [routerLink]="['/']" class="logo-container" (click)="changeNav('home')"
+      [ngClass]="{'active-section':activeHome, 'inactive-section':!activeHome}"><mat-icon
+        class="logo">storefront</mat-icon><span>Kwai
         Store</span><span>KS</span></a>
-
-
     <div class="header-nav">
-      <section>
-        <mat-icon class="material-icons-outlined" (click)="goProducts()">local_mall</mat-icon>
-        <a [routerLink]="['/products']"><span>Products</span></a>
+      <section [ngClass]="{'active-section':activeProducts, 'inactive-section':!activeProducts}"
+        (click)="changeNav('products')">
+        <mat-icon class="material-icons-outlined">local_mall</mat-icon>
+        <a><span>Products</span></a>
       </section>
-      <section>
-        <mat-icon (click)="goAbout()">public</mat-icon>
-        <a [routerLink]="['/products']"><span>About</span></a>
+      <section [ngClass]="{'active-section':activeAbout, 'inactive-section':!activeAbout}" (click)="changeNav('about')">
+        <mat-icon>public</mat-icon>
+        <a><span>About</span></a>
       </section>
       <!-- renderizando el app-cart en una parte del header -->
-      <app-cart (click)="goToCheckout()"></app-cart>
+      <app-cart [ngClass]="{'active-section':activeCart, 'inactive-section':!activeCart}"
+        (click)="changeNav('cart')"></app-cart>
     </div>
   </mat-toolbar>
   <section class="header-roof" (window:resize)="onResize()">

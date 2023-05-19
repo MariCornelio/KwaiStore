@@ -1,13 +1,21 @@
 <mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>{{product.name}}</mat-card-title>
+  <mat-card-header class="card-header">
+    <mat-card-title class="header-title">{{product.name}}</mat-card-title>
   </mat-card-header>
-  <!-- <mat-card-content>
-    {{product.description}}
-  </mat-card-content> -->
+  <mat-card-content class="card-content">
+    <section class="container-images">
+      <div *ngFor="let image of product.img" (click)="changeImage(image)">
+        <img src="{{image}}">
+      </div>
+    </section>
+    <section class="card-image">
+      <img src="{{product.img[1]}}">
+    </section>
+  </mat-card-content>
   <mat-card-actions>
-    <button mat-flat-button color="primary" (click)="onClick()" [disabled]="product.stock===0"> Buy {{product.price |
-      currency}}<mat-icon>add_shopping_cart</mat-icon></button>
-
+    <button class="card-button" [ngClass]="{'active-card-button':product.stock<1}" (click)="onClick()"
+      [disabled]="product.stock===0"><mat-icon>add_shopping_cart</mat-icon><span>Buy {{product.price| currency}}</span>
+      <span *ngIf="product.stock<1">(Sold out)</span>
+    </button>
   </mat-card-actions>
 </mat-card>

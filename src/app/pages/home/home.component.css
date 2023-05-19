@@ -208,16 +208,15 @@
 }
 .warm button {
   width: 80%;
-  background-color: #a63f5a;
+
   color: #ffffff;
   border-radius: 5px;
-  border: none;
+
   cursor: pointer;
-  /* background: linear-gradient(to bottom, #a63f5a 5%, #ffb7c4 100%); */
+
   border: 1px solid #56696355;
   background-color: #a63f5a;
-  /* border-bottom: 3px solid #ff818a;
-  border-right: 3px solid #ff818a; */
+
   padding: 5px;
   font-weight: 700;
   box-shadow: inset 0px 1px 3px 0px #ff818a;
