@@ -3,9 +3,113 @@
   /* min-height: 180px; */
   min-width: 250px;
   max-width: 400px;
+  background-color: #ffb7c4;
   /* height: 100%; */
+}
+
+.card-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 30px; */
 }
 button {
   width: 100%;
 }
 
+.card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  color: #ffffff;
+  background-color: #ff818a;
+  border-top: 3px solid #ffb7c4;
+  border-left: 3px solid #ffb7c4;
+  border-bottom: 5px solid #a63f5a;
+}
+.header-title {
+  font-weight: 900;
+}
+.card-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3px;
+  font-weight: 900;
+  border: 1px solid #56696355;
+  background-color: #a63f5a;
+  color: #ffffff;
+  box-shadow: inset 0px 1px 3px 0px #ff818a;
+}
+
+.card-image {
+  position: relative;
+  max-width: 300px;
+  /* min-width: 250px; */
+  padding: 15px;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-image img {
+  width: 100%;
+  height: 300px;
+  /* min-height: 250px; */
+  border-radius: 5px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #56696355;
+}
+
+.container-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  left: 30px;
+}
+.container-images div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #a63f5a;
+  overflow: hidden;
+  cursor: pointer;
+}
+.container-images div img {
+  border-radius: 5px;
+  object-fit: cover;
+  width: 80px;
+  height: 80px;
+}
+
+.active-card-button {
+  opacity: 0.7;
+}
+@media (min-width: 1200px) {
+  .card-image:hover {
+    transform: scale(1.1);
+    z-index: 2;
+  }
+}
+@media (max-width: 380px) {
+  .card-content {
+    flex-direction: column-reverse;
+  }
+  .container-images {
+    flex-direction: row;
+    left: 0;
+    top: -30px;
+  }
+}

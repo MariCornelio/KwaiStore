@@ -7,6 +7,9 @@ body {
 * {
   box-sizing: border-box;
 }
+img {
+  max-width: 100%;
+}
 body {
   min-height: 100vh;
   margin: 0;
@@ -14,4 +17,17 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background-color: #ff6c79;
   font-weight: 500;
+}
+
+.active-section .header-cart mat-icon {
+  color: #cf4b62bf;
+}
+.active-section .header-cart > span {
+  color: #cf4b62bf;
+}
+.inactive-section .header-cart mat-icon {
+  color: none;
+}
+.inactive-section .header-cart > span {
+  color: none;
 }

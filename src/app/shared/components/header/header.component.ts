@@ -24,10 +24,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   squares!: null[];
+  activeProducts: boolean = false;
+  activeAbout: boolean = false;
+  activeHome: boolean = false;
+  activeCart: boolean = false;
   constructor(private router: Router) {}
-  goToCheckout(): void {
-    this.router.navigate(['/checkout']);
-  }
+  // goToCheckout(): void {
+  //   this.router.navigate(['/checkout']);
+  // }
 
   ngOnInit(): void {
     this.squareGenerate();
@@ -43,10 +47,33 @@ export class HeaderComponent implements OnInit {
     const numSquares = Math.round(headerRoofWidth / widthSquare - 1);
     this.squares = Array(numSquares).fill(null);
   }
-  goProducts() {
-    this.router.navigate(['products']);
-  }
-  goAbout() {
-    this.router.navigate(['products']);
+  changeNav(value: string) {
+    if (value === 'products') {
+      this.router.navigate(['products']);
+      this.activeProducts = true;
+      this.activeAbout = false;
+      this.activeHome = false;
+      this.activeCart = false;
+    }
+    if (value === 'about') {
+      this.router.navigate(['products']);
+      this.activeProducts = false;
+      this.activeAbout = true;
+      this.activeHome = false;
+      this.activeCart = false;
+    }
+    if (value === 'home') {
+      this.activeProducts = false;
+      this.activeAbout = false;
+      this.activeHome = true;
+      this.activeCart = false;
+    }
+    if (value === 'cart') {
+      this.router.navigate(['/checkout']);
+      this.activeProducts = false;
+      this.activeAbout = false;
+      this.activeHome = false;
+      this.activeCart = true;
+    }
   }
 }

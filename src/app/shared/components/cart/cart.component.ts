@@ -3,17 +3,19 @@ import { ShoppingCartService } from '../../services/shopping-cart.service';
 
 @Component({
   selector: 'app-cart',
-  template: `
-    <ng-container
-      *ngIf="{ total: total$ | async, quantity: quantity$ | async } as dataCart"
-    >
-      <ng-container *ngIf="dataCart.total">
-        <mat-icon>add_shopping_cart</mat-icon>
-        {{ dataCart.total | currency }}
-        ({{ dataCart.quantity }})
-      </ng-container>
-    </ng-container>
-  `,
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
+  // template: `
+  //   <ng-container
+  //     *ngIf="{ total: total$ | async, quantity: quantity$ | async } as dataCart"
+  //   >
+  //     <ng-container *ngIf="dataCart.total">
+  //       <mat-icon>add_shopping_cart</mat-icon>
+  //       {{ dataCart.total | currency }}
+  //       ({{ dataCart.quantity }})
+  //     </ng-container>
+  //   </ng-container>
+  // `,
 })
 export class CartComponent {
   quantity$ = this.shoppingCartSvc.quantyActions$;

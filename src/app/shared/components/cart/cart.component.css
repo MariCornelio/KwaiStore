@@ -1,0 +1,12 @@
+.header-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 900;
+  margin-right: 5px;
+}
+.header-cart .header-cart__badge > span {
+  right: -15px;
+  background-color: #a63f5a;
+}
