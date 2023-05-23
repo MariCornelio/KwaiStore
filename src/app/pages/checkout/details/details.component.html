@@ -2,7 +2,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Name (model)</th>
         <th>Qty</th>
         <th>Price unit</th>
         <th>Sub Total</th>
@@ -11,18 +11,18 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of cart$ | async">
-        <td>{{product.name}}</td>
-        <td> <mat-icon>add</mat-icon>{{product.qty}}<mat-icon>remove</mat-icon></td>
+        <td>{{product.name}} ({{product.model}})</td>
+        <td> <mat-icon (click)="updateProduct(product.id,'add',product.model)">add</mat-icon>{{product.qty}}<mat-icon
+            (click)="updateProduct(product.id,'minus',product.model)">remove</mat-icon></td>
         <td>{{product.price | currency}}</td>
         <td>{{product.qty * product.price |currency}}</td>
-        <td><mat-icon>delete</mat-icon></td>
+        <td><mat-icon (click)="deleteProduct(product.id,product.model)">delete</mat-icon></td>
       </tr>
     </tbody>
   </table>
 
   <div class="container__total">
-    <p class="total">
-      <strong>Total: <span>{{total$|async|currency}}</span></strong>
-    </p>
+    <p>Total: </p>
+    <p>{{total$|async|currency}}</p>
   </div>
 </div>

@@ -48,14 +48,27 @@
   /* margin-bottom: 0.5rem; */
 }
 .form__element:nth-child(2) p {
-  color: #566963;
+  color: #646464;
+  font-weight: 400;
 }
 
 .container__button {
   margin: 0 auto;
-  display: block;
   width: 40%;
-  margin-top: 4rem;
+  margin-top: 1.5rem;
+}
+.container__button button {
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 3px;
+  font-weight: 900;
+  border: 1px solid #56696355;
+  background-color: #a63f5a;
+  color: #ffffff;
+  box-shadow: inset 0px 1px 3px 0px #ff818a;
+}
+.container__button button:disabled {
+  opacity: 0.7;
 }
 button {
   width: 100%;

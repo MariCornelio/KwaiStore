@@ -2,6 +2,7 @@ export interface Details {
   productId: number;
   productName: string;
   quantity: number;
+  model: number;
 }
 
 export interface Order {
