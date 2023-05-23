@@ -1,6 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Product } from 'src/app/pages/products/interfaces/product.interface';
+import {
+  Product,
+  ProductModel,
+} from 'src/app/pages/products/interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +25,7 @@ export class ShoppingCartService {
     return this.cartSubject.asObservable();
   }
   // el parameto product viene del servidor
-  updateCart(product: Product): void {
+  updateCart(product: ProductModel): void {
     this.addToCart(product);
     this.quantityProducts();
     this.calcTotal();
@@ -36,14 +39,21 @@ export class ShoppingCartService {
   }
 
   // el product viene del servidor
-  private addToCart(product: Product): void {
+  private addToCart(productModel: ProductModel): void {
     // este products es que array vacio que has creado aqui
-    const isProductInCart = this.products.find(({ id }) => id === product.id);
+    const isProductInCart = this.products.find(
+      ({ id, model }) =>
+        id === productModel.product.id && model === productModel.model
+    );
 
     if (isProductInCart) {
       isProductInCart.qty += 1;
     } else {
-      this.products.push({ ...product, qty: 1 });
+      this.products.push({
+        ...productModel.product,
+        qty: 1,
+        model: productModel.model,
+      });
     }
     this.cartSubject.next(this.products);
   }
@@ -57,5 +67,41 @@ export class ShoppingCartService {
       0
     );
     this.totalSubject.next(total);
+  }
+
+  deleteProduct(id: number, model: number): void {
+    const product = this.products.find(
+      (el) => el.id === id && el.model === model
+    );
+    if (product) {
+      this.products = this.products.filter(
+        (obj) => !(obj.id === product.id && obj.model === product.model)
+      );
+      this.cartSubject.next(this.products);
+      this.calcTotal();
+      this.quantityProducts();
+    }
+  }
+
+  qtyOperations(id: number, operations: string, model: number) {
+    const product = this.products.find(
+      (el) => el.id === id && el.model === model
+    );
+    if (product) {
+      if (operations === 'minus' && product.qty > 0) {
+        product.qty = product.qty - 1;
+        this.calcTotal();
+        this.quantityProducts();
+      }
+      if (operations === 'add') {
+        product.qty = product.qty + 1;
+        this.calcTotal();
+        this.quantityProducts();
+      }
+      if (product.qty === 0) {
+        this.deleteProduct(id, model);
+        this.quantityProducts();
+      }
+    }
   }
 }

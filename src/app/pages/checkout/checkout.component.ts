@@ -98,13 +98,21 @@ export class CheckoutComponent {
         name: productName,
         qty: quantity,
         stock,
+        model,
       } = product;
       const updateStock = stock - quantity;
       console.log(productName);
       this.productsSvc
         .updateStock(productId, updateStock)
         .pipe(
-          tap(() => this.details.push({ productId, productName, quantity }))
+          tap(() =>
+            this.details.push({
+              productId,
+              productName,
+              quantity,
+              model,
+            })
+          )
         )
         .subscribe();
     });
