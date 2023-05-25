@@ -3,7 +3,7 @@
   /* min-height: 180px; */
   min-width: 250px;
   max-width: 400px;
-  background-color: #ffb7c4;
+  background-color: var(--light-color);
   /* height: 100%; */
 }
 
@@ -23,11 +23,11 @@ button {
   justify-content: center;
   align-items: center;
   padding: 0.5rem;
-  color: #ffffff;
-  background-color: #ff818a;
-  border-top: 3px solid #ffb7c4;
-  border-left: 3px solid #ffb7c4;
-  border-bottom: 5px solid #a63f5a;
+  color: var(--main2-font-color);
+  background-color: var(--accent-main-color);
+  border-top: 3px solid var(--light-color);
+  border-left: 3px solid var(--light-color);
+  border-bottom: 5px solid var(--dark-color);
 }
 .header-title {
   font-weight: 900;
@@ -42,9 +42,9 @@ button {
   padding: 3px;
   font-weight: 900;
   border: 1px solid #56696355;
-  background-color: #a63f5a;
-  color: #ffffff;
-  box-shadow: inset 0px 1px 3px 0px #ff818a;
+  background-color: var(--dark-color);
+  color: var(--main2-font-color);
+  box-shadow: inset 0px 1px 3px 0px var(--accent-main-color);
 }
 
 .card-image {
@@ -83,7 +83,7 @@ button {
   align-items: center;
   padding: 5px;
   border-radius: 5px;
-  background-color: #a63f5a;
+  background-color: var(--dark-color);
   overflow: hidden;
   cursor: pointer;
 }
@@ -96,8 +96,8 @@ button {
 .container-images p {
   margin: 0;
   padding: 5px;
-  background-color: #ff818a;
-  color: #ffffff;
+  background-color: var(--accent-main-color);
+  color: var(--main2-font-color);
   border: 1px solid #56696355;
   border-radius: 5px;
 }
@@ -105,7 +105,7 @@ button {
 .container-images div span {
   top: 7px;
   right: 6px;
-  background-color: #ff818a;
+  background-color: var(--accent-main-color);
 }
 .card-actions {
   display: flex;
@@ -124,7 +124,7 @@ button {
 .card-actions__section p {
   margin: 0;
   padding: 5px;
-  color: #ffffff;
+  color: var(--main2-font-color);
 }
 
 .card-actions__section :nth-child(2) {
@@ -134,8 +134,8 @@ button {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: #ff818a;
-  color: #ffffff;
+  background-color: var(--accent-main-color);
+  color: var(--main2-font-color);
   border-radius: 50%;
 }
 

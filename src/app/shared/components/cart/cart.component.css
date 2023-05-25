@@ -2,11 +2,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: var(--main2-font-color);
   font-weight: 900;
   margin-right: 5px;
 }
+
 .header-cart .header-cart__badge > span {
   right: -15px;
-  background-color: #a63f5a;
+  background-color: var(--dark-color);
 }

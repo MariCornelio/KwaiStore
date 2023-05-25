@@ -1,3 +1,5 @@
+import { Store } from "./store.interface";
+
 export interface Details {
   productId: number;
   productName: string;
@@ -9,8 +11,9 @@ export interface Order {
   id: number;
   name: string;
   date: string;
-  shippingAddress: string;
-  city: string;
+  store?:Store
+  shippingAddress?: string;
+  city?: string;
   isDelivery: boolean;
 }
 

@@ -4,6 +4,15 @@
 body {
   min-height: 100vh;
 } */
+
+:root {
+  --main-color: #ff6c79;
+  --accent-main-color: #ff818a;
+  --light-color: #ffb7c4;
+  --dark-color: #a63f5a;
+  --main-font-color: #646464;
+  --main2-font-color: #f5f5f5;
+}
 * {
   box-sizing: border-box;
 }
@@ -15,15 +24,15 @@ body {
   margin: 0;
   width: 100%;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background-color: #ff6c79;
+  background-color: var(--main-color);
   font-weight: 500;
 }
 
 .active-section .header-cart mat-icon {
-  color: #cf4b62bf;
+  color: var(--dark-color);
 }
 .active-section .header-cart > span {
-  color: #cf4b62bf;
+  color: var(--dark-color);
 }
 .inactive-section .header-cart mat-icon {
   color: none;

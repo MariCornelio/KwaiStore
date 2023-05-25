@@ -1,11 +1,41 @@
 <div class="container">
-  <h1 class="title">Thank You!!!</h1>
-  <p class="content">
-    Your order is on the way!!
-  </p>
-  <span>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta reprehenderit veniam illo aspernatur voluptatum in
-    vero nostrum dolorem aliquid quae! Delectus deserunt fuga temporibus numquam vero esse accusamus necessitatibus
-    enim?
-  </span>
+  <section class="title">
+    <p>Thank You {{order.name}}!!!</p>
+    <p>
+      Your order has been registered successfully!!
+    </p>
+  </section>
+  <section *ngIf="orderDelivery" class="delivery">
+    <p>Your order will be sent to the address:</p>
+    <div>
+      <p>Shipping Address: </p>
+      <p>{{order.shippingAddress}}</p>
+    </div>
+    <div>
+      <p>City: </p>
+      <p>{{order.city}}</p>
+    </div>
+  </section>
+  <section *ngIf="!orderDelivery" class="notDelivery">
+    <p>Your order will be delivered to the store:</p>
+    <ng-container *ngIf="order.store">
+      <div>
+        <p>Store Name: </p>
+        <p>{{order.store.name}}</p>
+      </div>
+      <div>
+        <p>Address: </p>
+        <p>{{order.store.address}}</p>
+      </div>
+      <div>
+        <p>City: </p>
+        <p>{{order.store.city}}</p>
+      </div>
+      <div>
+        <p>Opening Hours: </p>
+        <p>{{order.store.openingHours}}</p>
+      </div>
+    </ng-container>
+  </section>
+  <button (click)="back()">OK</button>
 </div>

@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { tap } from 'rxjs';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
+import { Product } from '../../products/interfaces/product.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -7,7 +10,12 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent {
-  constructor(private shoppinCartSvc: ShoppingCartService) {}
+  constructor(
+    private shoppinCartSvc: ShoppingCartService,
+    private router: Router
+  ) {
+    this.checkIfCartIsEmpty();
+  }
   total$ = this.shoppinCartSvc.totalActions$;
   cart$ = this.shoppinCartSvc.cartActions$;
 
@@ -16,5 +24,17 @@ export class DetailsComponent {
   }
   deleteProduct(id: number, model: number) {
     this.shoppinCartSvc.deleteProduct(id, model);
+  }
+  // redirecciona si el carrito está vacío
+  private checkIfCartIsEmpty(): void {
+    this.cart$
+      .pipe(
+        tap((products: Product[]) => {
+          if (Array.isArray(products) && !products.length) {
+            this.router.navigate(['/products']);
+          }
+        })
+      )
+      .subscribe();
   }
 }
