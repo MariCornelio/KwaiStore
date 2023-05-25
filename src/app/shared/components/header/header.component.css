@@ -4,6 +4,7 @@
   z-index: 999;
   font-weight: 800;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -33,7 +34,7 @@
 }
 
 .header-nav mat-icon {
-  color: #ffffff;
+  color: var(--main2-font-color);
   margin-right: 5px;
 }
 .header :first-child {
@@ -44,7 +45,7 @@
 }
 a {
   text-decoration: none;
-  color: #ffffff;
+  color: var(--main2-font-color);
 }
 app-cart:hover {
   cursor: pointer;
@@ -75,7 +76,7 @@ app-cart:hover {
   background-color: #92c8f6;
 }
 .square:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: var(--main2-font-color);
 }
 /* *********************************** */
 /* Inactividad de secciones de navegacion */

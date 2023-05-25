@@ -12,6 +12,7 @@ import { Product } from '../products/interfaces/product.interface';
 import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.service';
 import { Router } from '@angular/router';
 import { ProductsService } from '../products/services/products.service';
+import { BuyOrderService } from 'src/app/shared/services/buy-order.service';
 
 @Component({
   selector: 'app-checkout',
@@ -33,10 +34,9 @@ export class CheckoutComponent {
     private dataSvc: DataService,
     private shoppingCartSvc: ShoppingCartService,
     private router: Router,
-    private productsSvc: ProductsService
-  ) {
-    this.checkIfCartIsEmpty();
-  }
+    private productsSvc: ProductsService,
+    private orderSvc: BuyOrderService
+  ) {}
 
   ngOnInit(): void {
     this.getStore();
@@ -66,6 +66,7 @@ export class CheckoutComponent {
       isDelivery: this.isDelivery,
     };
     console.log(data);
+    this.orderSvc.addToOrder(data);
     this.dataSvc
       .saveOrder(data)
       .pipe(
@@ -78,9 +79,8 @@ export class CheckoutComponent {
             orderId,
           });
         }),
-        tap((resp) => this.router.navigate(['/checkout/thank-you-page'])),
-        delay(2000),
-        tap(() => this.shoppingCartSvc.resetCart())
+        tap(() => this.shoppingCartSvc.resetCart()),
+        tap(() => this.router.navigate(['/checkout/thank-you-page']))
       )
       .subscribe();
   }
@@ -122,19 +122,6 @@ export class CheckoutComponent {
   private getDataCart(): void {
     this.shoppingCartSvc.cartActions$
       .pipe(tap((products: Product[]) => (this.cart = products)))
-      .subscribe();
-  }
-
-  // redirecciona si el carrito está vacío
-  private checkIfCartIsEmpty(): void {
-    this.shoppingCartSvc.cartActions$
-      .pipe(
-        tap((products: Product[]) => {
-          if (Array.isArray(products) && !products.length) {
-            this.router.navigate(['/products']);
-          }
-        })
-      )
       .subscribe();
   }
 }
