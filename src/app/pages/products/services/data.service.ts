@@ -8,7 +8,7 @@ import { DetailsOrder, Order } from 'src/app/shared/interfaces/order.interface';
   providedIn: 'root',
 })
 export class DataService {
-  private apiURL = 'http://localhost:8080';
+  private apiURL = 'https://kwai-store-mock-server.onrender.com';
   constructor(private http: HttpClient) {}
   getStores(): Observable<Store[]> {
     return this.http.get<Store[]>(`${this.apiURL}/stores`);

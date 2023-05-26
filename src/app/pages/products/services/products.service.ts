@@ -7,7 +7,7 @@ import { Product } from '../interfaces/product.interface';
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiURl = 'http://localhost:8080';
+  private apiURl = 'https://kwai-store-mock-server.onrender.com';
   constructor(private http: HttpClient) {}
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.apiURl}/products`);
