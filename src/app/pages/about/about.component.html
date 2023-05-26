@@ -1,0 +1,45 @@
+<section class="container-about">
+  <div class="title">
+    <p>Kwai Store</p>
+  </div>
+  <section class="about-content">
+    <p>
+      At Kwai Store, we have been passionate about providing high-quality products to our customers since 2003. Our
+      history
+      began with a vision to give people quick and easy access to Kwai or Asian fashion products, which is why we are
+      committed to offering products of quality. We work closely with trusted suppliers and conduct rigorous quality
+      testing
+      to ensure that each product meets our exacting standards. In addition, we have certifications that guarantee our
+      dedication to excellence.
+    </p>
+    <p>Customer Support</p>
+    <p>
+      We value our customers and take pride in providing exceptional customer service. We are committed to responding
+      quickly to your inquiries and concerns, and we strive to provide a hassle-free shopping experience. In addition,
+      we have a flexible return policy to guarantee your satisfaction.
+    </p>
+    <p>Stores</p>
+    <div class="stores-container">
+      <section class="store" *ngFor="let store of stores;index as i">
+        <div class="store-number">
+          <p>{{i+1}}</p>
+        </div>
+        <div class="store-content">
+          <p>{{store.name}}</p>
+          <div>
+            <p>City</p>
+            <p>{{store.city}}</p>
+          </div>
+          <div>
+            <p>Address</p>
+            <p>{{store.address}}</p>
+          </div>
+          <div>
+            <p>Opening Hours</p>
+            <p>{{store.openingHours}}</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</section>

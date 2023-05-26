@@ -11,9 +11,10 @@ import { MariComponent } from './pages/mari/mari.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CartComponent } from './shared/components/cart/cart.component';
 import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, MariComponent, CartComponent, HomeComponent],
+  declarations: [AppComponent, HeaderComponent, MariComponent, CartComponent, HomeComponent, AboutComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

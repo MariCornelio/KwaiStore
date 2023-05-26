@@ -56,7 +56,7 @@ export class HeaderComponent implements OnInit {
       this.activeCart = false;
     }
     if (value === 'about') {
-      this.router.navigate(['products']);
+      this.router.navigate(['about']);
       this.activeProducts = false;
       this.activeAbout = true;
       this.activeHome = false;

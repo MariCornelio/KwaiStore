@@ -11,6 +11,7 @@ import { ShoppingCartService } from 'src/app/shared/services/shopping-cart.servi
 })
 export class ProductsComponent implements OnInit {
   products!: Product[];
+  loader: boolean = true;
   constructor(
     private productSvc: ProductsService,
     private shoppingCartSvc: ShoppingCartService
@@ -18,7 +19,12 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productSvc
       .getProducts()
-      .pipe(tap((products: Product[]) => (this.products = products)))
+      .pipe(
+        tap((products: Product[]) => {
+          this.products = products;
+          this.loader = false;
+        })
+      )
       .subscribe();
   }
   addToCart(product: ProductModel): void {
