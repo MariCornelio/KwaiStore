@@ -6,3 +6,21 @@
   margin-top: 20px;
   padding: 15px;
 }
+
+.login-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #000000cc;
+  opacity: 0.8;
+  z-index: 1000;
+}
+
+.login-loader img {
+  width: 100px;
+}
